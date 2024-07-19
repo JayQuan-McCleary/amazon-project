@@ -53,6 +53,28 @@ class Clothing extends Product{
     </a>`                 
   }
 }
+/*
+function loadProducts(fun) {
+  const xhr = new XMLHTTPRequest()
+
+  xhr.addEventListener('load', () => {
+    products = JSON.parse(xhr.response).map((productDetails) => {
+
+  if (productDetails.type === "clothing") {
+    return new Clothing(productDetails);
+  }
+
+  return new Product(productDetails);
+});
+
+console.log('load products');
+
+fun();
+
+  xhr.open('GET', 'https://jaysTestBackend.dev/products');
+  xhr.send();
+}
+*/
 
 export const products = [
   {

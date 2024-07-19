@@ -1,6 +1,6 @@
 import { renderOrderSummary } from "../../scripts/checkout/orderSummary.js";
 import { loadFromStorage } from "../../data/cart.js";
-
+// import { loadProducts } from "../../data/products.js";
 describe('test suite: renderOrderSummary', () => {
     It ('Displays the cart', () => {
         document.querySelector('.js-test-container').innerHTML = `
@@ -34,6 +34,15 @@ describe('test suite: renderOrderSummary', () => {
                         deliveryOptionId: "2",
                     }]);
                 });
+
+                /*
+                beforeAll((done) => {
+                    loadProducts(() => {
+                        done();
+                    });
+                });
+                
+                */ 
         
                 // Load the cart from storage (this will use the mocked localStorage.getItem)
                 loadFromStorage();

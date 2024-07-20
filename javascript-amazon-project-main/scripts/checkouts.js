@@ -9,19 +9,15 @@ renderPaymentSummary();
 
 /*
 import '../data/backend-practice.js';
-import {loadProducts} from '../data/products.js';
+import {loadProducts, loadProductsFetch} from '../data/products.js';
 import {loadCart} from '../data/cart.js';
 */ 
 
 /*
 
 new Promise((resolve)=>{
-    loadProducts(() => {
-        resolve();
-    });
-
-}).then(() => {
-    return new Promise((resolve) => {
+loadProductsFetch(),
+     new Promise((resolve) => {
         loadCart(() => {
             resolve();
         });

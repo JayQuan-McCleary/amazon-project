@@ -53,6 +53,30 @@ class Clothing extends Product{
     </a>`                 
   }
 }
+
+/*
+function loadProductsFetch(fun) {
+
+  const promise = fetch(
+  'https://jaysTestBackend.dev/products')
+    .then((response) => {
+      return response.json();
+    })
+    .then((productsData) => {
+      products = productsData.map((productDetails) => {
+
+        if (productDetails.type === "clothing") {
+          return new Clothing(productDetails);
+        }
+
+        return new Product(productDetails);
+        });
+    });
+    return promise;
+}
+  
+    
+  const xhr = new XMLHTTPRequest()
 /*
 function loadProducts(fun) {
   const xhr = new XMLHTTPRequest()

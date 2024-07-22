@@ -70,7 +70,9 @@ function loadProductsFetch(fun) {
         }
 
         return new Product(productDetails);
-        });
+        }).catch((error) => {
+          console.log(error);
+        })
     });
     return promise;
 }
@@ -94,6 +96,12 @@ function loadProducts(fun) {
 console.log('load products');
 
 fun();
+
+  });
+
+  xhr.addEventListener('error', (error) => {
+    console.log('error');
+  });
 
   xhr.open('GET', 'https://jaysTestBackend.dev/products');
   xhr.send();

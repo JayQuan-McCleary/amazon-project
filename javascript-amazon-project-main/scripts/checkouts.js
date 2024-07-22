@@ -10,26 +10,30 @@ renderPaymentSummary();
 /*
 
 TESTING AWAIT VS MANUAL PROMISES - AWAIT IS BETTER
+throw or reject for error handeling
 
 async function loadPage() {
-await loadProductsFetch(),
+try {
 
-const value = await new Promise((resolve) => {
+
+    await loadProductsFetch(),
+    const value = await new Promise((resolve, reject) => {
     loadCart(() => {
+        reject('error');
         resolve();
     });
 });
+} catch (error) {
+    console.log(Unexpected error: ${error});
+}
+no actual error variable!!!
+
 renderOrderSummary();
 renderPaymentSummary();
 }
 loadPage();
 
 AWAIT IS BETTER it took like 10 or so easily readable lines of code
-
-
-
-
-
 
 /*
 import '../data/backend-practice.js';

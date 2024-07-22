@@ -2,6 +2,7 @@ import { cart } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { getDeliveryOptions } from "../../data/deliveryOptions.js";
 import formatCurrency from "../utils/money.js";
+// import addOrder from "../data/orders.js";
 
 export function renderPaymentSummary() {
     let productPriceCents = 0;
@@ -49,19 +50,37 @@ export function renderPaymentSummary() {
             <div class="payment-summary-money">$${formatCurrency(totalCents)}</div>
         </div>
 
-        <button class="place-order-button button-primary">
+        <button class="place-order-button button-primary
+        js-place-order">
             Place your order
         </button>
     `;
 
-    const paymentSummaryElement = document.querySelector('.js-payment-summary');
-    if (paymentSummaryElement) {
-        paymentSummaryElement.innerHTML = paymentSummaryHTML;
-    } else {
-        console.error("Element with class 'js-payment-summary' not found.");
-    }
+    document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
+
+    // add event listener should have async but server is down indefinetly so for now it's just an alert plus code showing what wouldve been sent.
+    //also could make it a try catch 
+    /*
+    catch else = window.location.href = 'orders.html';
+    
+    */
+    document.querySelector('.js-place-order').addEventListener('click', () => {
+        alert('Your order has been placed!');
+        /*
+        await const response = fetch('https://jaysTestBackend.dev', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+            cart: cart
+            )
+        });
+        const order = await response.json();
+        addOrder(order);
+        */
+    });
+
+
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    renderPaymentSummary();
-});
